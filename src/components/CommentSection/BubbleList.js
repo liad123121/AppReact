@@ -13,7 +13,9 @@ const BubbleList = () => {
 
   useEffect(() => {
     const fetch = async () => {
-      const res = await axios.get("http://localhost:4000/api/review");
+      const res = await axios.get(
+        "https://teragenserver.herokuapp.com/api/review"
+      );
       dispatch(reviewSliceAction.setReviews({ reviews: res.data }));
     };
     fetch();

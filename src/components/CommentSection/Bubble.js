@@ -16,7 +16,7 @@ const Bubble = ({ title, content, id, ismodel, instruction }) => {
   let getModel = false;
 
   const handleOnClick = async () => {
-    await axios.delete(`http://localhost:4000/api/review/${id}`);
+    await axios.delete(`https://teragenserver.herokuapp.com/api/review/${id}`);
     const filter = reviews.filter((review) => {
       return review._id !== id;
     });

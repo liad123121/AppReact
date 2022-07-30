@@ -17,7 +17,7 @@ const Feature = () => {
   const dispatch = useDispatch();
 
   const handleOnDelete = async () => {
-    await axios.delete("http://localhost:4000/api/review");
+    await axios.delete("https://teragenserver.herokuapp.com/api/review");
     dispatch(reviewSliceAction.setReviews({ reviews: [] }));
   };
 
@@ -44,9 +44,12 @@ const Feature = () => {
       return obj;
     });
 
-    const res = await axios.post("http://localhost:4000/api/review/file", {
-      file: array,
-    });
+    const res = await axios.post(
+      "https://teragenserver.herokuapp.com/api/review/file",
+      {
+        file: array,
+      }
+    );
     dispatch(
       reviewSliceAction.setReviews({ reviews: [...reviews, ...res.data] })
     );

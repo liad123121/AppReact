@@ -24,10 +24,13 @@ const FeatureButtonDiv = ({ setFiles }) => {
     const titleIndex = Math.floor(Math.random() * titles.length);
     const textIndex = Math.floor(Math.random() * texts.length);
 
-    const res = await axios.post("http://localhost:4000/api/review", {
-      title: titles[titleIndex],
-      content: texts[textIndex],
-    });
+    const res = await axios.post(
+      "https://teragenserver.herokuapp.com/api/review",
+      {
+        title: titles[titleIndex],
+        content: texts[textIndex],
+      }
+    );
 
     dispatch(reviewSliceAction.addReview({ review: res.data }));
   };

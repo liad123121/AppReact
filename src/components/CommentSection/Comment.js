@@ -18,10 +18,13 @@ const Comment = () => {
   const handleOnSubmit = async (e) => {
     e.preventDefault();
 
-    const res = await axios.post("http://localhost:4000/api/review", {
-      title,
-      content,
-    });
+    const res = await axios.post(
+      "https://teragenserver.herokuapp.com/api/review",
+      {
+        title,
+        content,
+      }
+    );
     dispatch(reviewSliceAction.addReview({ review: res.data }));
     setContent("");
     setTitle("");
